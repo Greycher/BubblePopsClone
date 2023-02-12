@@ -1,7 +1,9 @@
 {
-    "name": "BubblePopsClone",
-    "rootNamespace": "BubblePopsClone",
-    "references": [],
+    "name": "BubblePopsClone.Runtime",
+    "rootNamespace": "BubblePopsClone.Runtime",
+    "references": [
+        "GUID:64a9ba9b3e75e90488cda13c1946cc82"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

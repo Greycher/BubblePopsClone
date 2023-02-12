@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Assertions;
 
-namespace BubblePopsClone
+namespace BubblePopsClone.Runtime
 {
     public class CircleGrid : MonoBehaviour
     {
@@ -16,18 +15,20 @@ namespace BubblePopsClone
 
         public Vector2 CellToWorld(Vector2Int cellPosition)
         {
-            return new Vector2(cellPosition.x, cellPosition.y) * (2 * radius) 
-                   + new Vector2(radius + cellPosition.y % 2 * radius, radius);
+            var p =  new Vector2(cellPosition.x, cellPosition.y) * (
+                2 * radius) + new Vector2(cellPosition.y % 2 * radius, 0); ;
+            return transform.TransformPoint(p);
         }
         
         public Vector2Int WorldToCell(Vector2 p)
         {
-            var y = (int)((p.y - radius) / (2 * radius));
-            var x = (int)((p.x - radius - y % 2 * radius) / (2 * radius));
+            p = transform.InverseTransformPoint(p);
+            var y = (int)(p.y / (2 * radius));
+            var x = (int)((p.x - y % 2 * radius) / (2 * radius));
             return new Vector2Int(x, y);
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             for (int x = 0; x < gizmoCellCount.x; x++)
             {

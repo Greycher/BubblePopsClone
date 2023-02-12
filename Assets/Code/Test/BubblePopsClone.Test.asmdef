@@ -1,10 +1,11 @@
 {
-    "name": "Tests",
+    "name": "BubblePopsClone.Test",
     "rootNamespace": "BubblePopsClone.Test",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "BubblePopsClone"
+        "BubblePopsClone",
+        "BubblePopsClone.Runtime"
     ],
     "includePlatforms": [
         "Editor"

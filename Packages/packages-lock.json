@@ -98,6 +98,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "net.greycher.sceneguiattributes": {
+      "version": "https://github.com/Greycher/com.greycher.sceneguiattributes.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7282dc37da14c875befd55174704abab2c093a65"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
