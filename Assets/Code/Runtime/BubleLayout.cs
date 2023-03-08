@@ -10,6 +10,8 @@ namespace BubblePopsClone.Runtime
         private Slot[] _slots;
         private Bounds _bounds;
 
+        private const float ColliderThickness = 1;
+
         public Bounds Bounds
         {
             get => _bounds;
@@ -19,6 +21,7 @@ namespace BubblePopsClone.Runtime
         private void Awake()
         {
             Initialize();
+            CreateColliders();
         }
 
         private void Initialize()
@@ -37,8 +40,21 @@ namespace BubblePopsClone.Runtime
             var max = circleGrid.CellToWorld(_slots[dimension.x - 1].CellPos) + Vector2.one * circleGrid.Radius;
             _bounds = new Bounds((min + max) / 2, new Vector2(max.x - min.x, max.y - min.y));
         }
+        
+        private void CreateColliders()
+        {
+            var center = _bounds.center;
+            var min = _bounds.min;
+            var max = _bounds.max;
 
-        private void OnDrawGizmosSelected()
+            var halfCollThickness = ColliderThickness / 2;
+            var rightColl = gameObject.AddComponent<BoxCollider2D>();
+            rightColl.
+            rightColl.center = new Vector3(max.x + halfCollThickness, center.y, 0);
+            rightColl.size = new Vector3(max.x + halfCollThickness, center.y, 0);
+        }
+
+        private void OnDrawGizmos()
         {
             if (!circleGrid)
             {
